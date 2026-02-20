@@ -49,18 +49,30 @@ jobs:
             --period all \
             --output badges-all.md
 
-      - name: Generate badge endpoint JSON
+      - name: Generate badge endpoint JSON and Gist summary
         run: |
           python -c "
           import json, sys
           sys.path.insert(0, 'turntime/scripts')
-          from generate_badges import generate_badge_json
+          from generate_badges import generate_badge_json, format_duration
           with open('turntime-stats.json') as f:
               data = json.load(f)
           stats = data.get('stats', {}).get('month', data.get('stats', {}).get('all', {}))
           badge = generate_badge_json(stats)
           with open('turntime-shield.json', 'w') as f:
               json.dump(badge, f, indent=2)
+          summary = (
+              '## ⏱ Claude Code Turn Duration\n'
+              '\n'
+              f'Avg: {format_duration(stats.get(\"avg_seconds\", 0))}'
+              f' · Median: {format_duration(stats.get(\"median_seconds\", 0))}'
+              f' · P90: {format_duration(stats.get(\"p90_seconds\", 0))}\n'
+              f'{stats.get(\"count\", 0)} turns this month\n'
+              '\n'
+              'Powered by [turntime](https://github.com/Trevor-Mengel/turntime)\n'
+          )
+          with open('gist-readme.md', 'w') as f:
+              f.write(summary)
           "
 
       - name: Update Gist
@@ -69,15 +81,16 @@ jobs:
           GIST_ID: ${{ secrets.TURNTIME_GIST_ID }}
         run: |
           jq -n \
+            --arg readme "$(cat gist-readme.md)" \
             --arg svg "$(cat turntime-histogram.svg)" \
             --arg stats "$(cat turntime-stats.json)" \
             --arg badge "$(cat turntime-shield.json)" \
             '{
               "files": {
+                "README.md": {"content": $readme},
                 "turntime-histogram.svg": {"content": $svg},
                 "turntime-stats.json": {"content": $stats},
-                "turntime-shield.json": {"content": $badge},
-                "turntime-badge.json": null
+                "turntime-shield.json": {"content": $badge}
               }
             }' | curl -s -X PATCH \
               -H "Authorization: token $GH_TOKEN" \
@@ -123,4 +136,4 @@ jobs:
             (git commit -m "chore: update turntime stats" && git push)
 
       - name: Cleanup
-        run: rm -rf turntime badges-month.md badges-all.md turntime-histogram.svg turntime-shield.json
+        run: rm -rf turntime badges-month.md badges-all.md turntime-histogram.svg turntime-shield.json gist-readme.md
