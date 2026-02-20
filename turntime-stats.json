@@ -1,0 +1,146 @@
+{
+  "generated_at": "2026-02-20T01:31:35.647558+00:00",
+  "version": "1.0.0",
+  "stats": {
+    "today": {
+      "period": "day",
+      "label": "2026-02-20",
+      "count": 431,
+      "total_seconds": 3408.2899999999972,
+      "min_seconds": 0.5,
+      "max_seconds": 121.22,
+      "avg_seconds": 7.907865429234333,
+      "median_seconds": 4.54,
+      "p90_seconds": 13.79,
+      "total_input_tokens": 38132,
+      "total_output_tokens": 79179,
+      "total_tool_uses": 546
+    },
+    "week": {
+      "period": "week",
+      "label": "2026-W08",
+      "count": 3990,
+      "total_seconds": 33146.70000000001,
+      "min_seconds": 0.5,
+      "max_seconds": 199.27,
+      "avg_seconds": 8.30744360902256,
+      "median_seconds": 4.6,
+      "p90_seconds": 15.98,
+      "total_input_tokens": 237738,
+      "total_output_tokens": 506053,
+      "total_tool_uses": 4318
+    },
+    "month": {
+      "period": "month",
+      "label": "2026-02",
+      "count": 11815,
+      "total_seconds": 92160.24000000043,
+      "min_seconds": 0.5,
+      "max_seconds": 1205.48,
+      "avg_seconds": 7.800274227676718,
+      "median_seconds": 3.91,
+      "p90_seconds": 13.77,
+      "total_input_tokens": 709327,
+      "total_output_tokens": 720275,
+      "total_tool_uses": 12595
+    },
+    "quarter": {
+      "period": "quarter",
+      "label": "2026-Q1",
+      "count": 13222,
+      "total_seconds": 105726.45000000007,
+      "min_seconds": 0.5,
+      "max_seconds": 1205.48,
+      "avg_seconds": 7.99625245802451,
+      "median_seconds": 3.96,
+      "p90_seconds": 14.28,
+      "total_input_tokens": 1055491,
+      "total_output_tokens": 745552,
+      "total_tool_uses": 15299
+    },
+    "year": {
+      "period": "year",
+      "label": "2026",
+      "count": 13222,
+      "total_seconds": 105726.45000000007,
+      "min_seconds": 0.5,
+      "max_seconds": 1205.48,
+      "avg_seconds": 7.99625245802451,
+      "median_seconds": 3.96,
+      "p90_seconds": 14.28,
+      "total_input_tokens": 1055491,
+      "total_output_tokens": 745552,
+      "total_tool_uses": 15299
+    },
+    "all": {
+      "period": "all",
+      "label": "all-time",
+      "count": 13222,
+      "total_seconds": 105726.45000000007,
+      "min_seconds": 0.5,
+      "max_seconds": 1205.48,
+      "avg_seconds": 7.99625245802451,
+      "median_seconds": 3.96,
+      "p90_seconds": 14.28,
+      "total_input_tokens": 1055491,
+      "total_output_tokens": 745552,
+      "total_tool_uses": 15299
+    }
+  },
+  "histogram": [
+    {
+      "bin": "0-5s",
+      "lo": 0,
+      "hi": 5,
+      "count": 7733
+    },
+    {
+      "bin": "5-10s",
+      "lo": 5,
+      "hi": 10,
+      "count": 2343
+    },
+    {
+      "bin": "10-20s",
+      "lo": 10,
+      "hi": 20,
+      "count": 958
+    },
+    {
+      "bin": "20-30s",
+      "lo": 20,
+      "hi": 30,
+      "count": 305
+    },
+    {
+      "bin": "30-60s",
+      "lo": 30,
+      "hi": 60,
+      "count": 272
+    },
+    {
+      "bin": "1-2m",
+      "lo": 60,
+      "hi": 120,
+      "count": 139
+    },
+    {
+      "bin": "2-5m",
+      "lo": 120,
+      "hi": 300,
+      "count": 63
+    },
+    {
+      "bin": "5-10m",
+      "lo": 300,
+      "hi": 600,
+      "count": 1
+    },
+    {
+      "bin": "10-30m",
+      "lo": 600,
+      "hi": 1800,
+      "count": 1
+    }
+  ]
+}

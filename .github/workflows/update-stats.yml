@@ -1,0 +1,125 @@
+name: Update turntime stats
+
+on:
+  schedule:
+    # Run daily at 06:00 UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allow manual triggers
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout profile repo
+        uses: actions/checkout@v4
+
+      - name: Checkout turntime scripts
+        uses: actions/checkout@v4
+        with:
+          repository: Trevor-Mengel/turntime
+          path: turntime
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate histogram SVG
+        run: |
+          python turntime/scripts/generate_histogram.py \
+            turntime-stats.json \
+            --output turntime-histogram.svg \
+            --theme auto \
+            --period month
+
+      - name: Generate badges
+        run: |
+          python turntime/scripts/generate_badges.py \
+            turntime-stats.json \
+            --format markdown \
+            --period month \
+            --output badges-month.md
+
+          python turntime/scripts/generate_badges.py \
+            turntime-stats.json \
+            --format markdown \
+            --period all \
+            --output badges-all.md
+
+      - name: Generate badge endpoint JSON
+        run: |
+          python -c "
+          import json, sys
+          sys.path.insert(0, 'turntime/scripts')
+          from generate_badges import generate_badge_json
+          with open('turntime-stats.json') as f:
+              data = json.load(f)
+          stats = data.get('stats', {}).get('month', data.get('stats', {}).get('all', {}))
+          badge = generate_badge_json(stats)
+          with open('turntime-badge.json', 'w') as f:
+              json.dump(badge, f, indent=2)
+          "
+
+      - name: Update Gist
+        env:
+          GH_TOKEN: ${{ secrets.TURNTIME_GIST_TOKEN }}
+          GIST_ID: ${{ secrets.TURNTIME_GIST_ID }}
+        run: |
+          jq -n \
+            --arg svg "$(cat turntime-histogram.svg)" \
+            --arg stats "$(cat turntime-stats.json)" \
+            --arg badge "$(cat turntime-badge.json)" \
+            '{
+              "files": {
+                "turntime-histogram.svg": {"content": $svg},
+                "turntime-stats.json": {"content": $stats},
+                "turntime-badge.json": {"content": $badge}
+              }
+            }' | curl -s -X PATCH \
+              -H "Authorization: token $GH_TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              -d @- \
+              "https://api.github.com/gists/$GIST_ID" > /dev/null
+
+          echo "Gist updated"
+
+      - name: Update README badges
+        run: |
+          python -c "
+          import re
+
+          with open('badges-month.md') as f:
+              month_badge = f.read().strip()
+          with open('badges-all.md') as f:
+              all_badge = f.read().strip()
+
+          month_lines = [l for l in month_badge.split('\n') if l.startswith('![')]
+          all_lines = [l for l in all_badge.split('\n') if l.startswith('![')]
+          badge_content = '\n'.join(month_lines + all_lines)
+
+          with open('README.md') as f:
+              readme = f.read()
+
+          pattern = r'(<!-- turntime badges -->)\n.*?\n(<!-- /turntime badges -->)'
+          replacement = r'\1\n' + badge_content + r'\n\2'
+          readme = re.sub(pattern, replacement, readme, flags=re.DOTALL)
+
+          with open('README.md', 'w') as f:
+              f.write(readme)
+
+          print('README badges updated')
+          "
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --staged --quiet && echo "No changes to commit" || \
+            (git commit -m "chore: update turntime stats" && git push)
+
+      - name: Cleanup
+        run: rm -rf turntime badges-month.md badges-all.md turntime-histogram.svg turntime-badge.json
