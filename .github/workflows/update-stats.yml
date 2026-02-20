@@ -32,8 +32,7 @@ jobs:
           python turntime/scripts/generate_histogram.py \
             turntime-stats.json \
             --output turntime-histogram.svg \
-            --theme dark \
-            --period month
+            --theme dark
 
       - name: Generate badges
         run: |
