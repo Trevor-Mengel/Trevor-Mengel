@@ -1,8 +1,9 @@
 ## Hi there 👋
 
 <!-- turntime badges -->
-![⏱ This Week](https://img.shields.io/badge/%E2%8F%B1%20This%20Week-7.0m%20%E2%96%B22%25-14b8a6?style=for-the-badge)
-![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-6.8m-14b8a6?style=for-the-badge)
+### Avg. Turn Duration (Claude Code)
+![⏱ This Week](https://img.shields.io/badge/%E2%8F%B1%20This%20Week-6.9mins%20%E2%96%B22%25-14b8a6?style=for-the-badge)
+![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-6.8mins-14b8a6?style=for-the-badge)
 <!-- /turntime badges -->
 
 <!-- turntime histogram -->
