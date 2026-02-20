@@ -6,7 +6,5 @@
 <!-- /turntime badges -->
 
 <!-- turntime histogram -->
-<picture>
-  <img src="turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" />
-</picture>
+<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/main/turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" width="840" />
 <!-- /turntime histogram -->
