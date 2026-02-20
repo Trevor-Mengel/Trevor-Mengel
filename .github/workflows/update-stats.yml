@@ -19,6 +19,7 @@ jobs:
       - name: Checkout turntime scripts
         uses: actions/checkout@v4
         with:
+          # Change this to your fork if you've forked the repo
           repository: Trevor-Mengel/turntime
           path: turntime
 
