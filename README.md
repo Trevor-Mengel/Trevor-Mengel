@@ -1,8 +1,8 @@
 ## Hi there 👋
 
 <!-- turntime badges -->
-![⏱ This Month](https://img.shields.io/badge/%E2%8F%B1%20This%20Month-3.4m-green?style=flat-square)
-![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-3.8m-green?style=flat-square)
+![⏱ This Month](https://img.shields.io/badge/%E2%8F%B1%20This%20Month-6.3m-yellowgreen?style=flat-square)
+![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-6.9m-yellowgreen?style=flat-square)
 <!-- /turntime badges -->
 
 <!-- turntime histogram -->
