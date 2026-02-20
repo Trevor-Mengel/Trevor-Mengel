@@ -32,7 +32,7 @@ jobs:
           python turntime/scripts/generate_histogram.py \
             turntime-stats.json \
             --output turntime-histogram.svg \
-            --theme auto \
+            --theme dark \
             --period month
 
       - name: Generate badges
@@ -49,7 +49,7 @@ jobs:
             --period all \
             --output badges-all.md
 
-      - name: Generate badge endpoint JSON and Gist summary
+      - name: Generate badge endpoint JSON and Gist dashboard
         run: |
           python -c "
           import json, sys
@@ -61,18 +61,20 @@ jobs:
           badge = generate_badge_json(stats)
           with open('turntime-shield.json', 'w') as f:
               json.dump(badge, f, indent=2)
-          summary = (
-              '## ⏱ Claude Code Turn Duration\n'
-              '\n'
-              f'Avg: {format_duration(stats.get(\"avg_seconds\", 0))}'
-              f' · Median: {format_duration(stats.get(\"median_seconds\", 0))}'
-              f' · P90: {format_duration(stats.get(\"p90_seconds\", 0))}\n'
-              f'{stats.get(\"count\", 0)} turns this month\n'
-              '\n'
-              'Powered by [turntime](https://github.com/Trevor-Mengel/turntime)\n'
-          )
-          with open('gist-readme.md', 'w') as f:
-              f.write(summary)
+
+          # Build plain-text dashboard for pinned Gist display
+          GLOBAL_MEDIAN_SECONDS = 45
+          week_stats = data.get('stats', {}).get('week', {})
+          week_avg = week_stats.get('avg_seconds', 0)
+          week_avg_fmt = format_duration(week_avg)
+          if week_avg > 0:
+              pct = ((week_avg - GLOBAL_MEDIAN_SECONDS) / GLOBAL_MEDIAN_SECONDS) * 100
+              arrow = '\u2191' if pct > 0 else '\u2193'
+              dashboard = f'{week_avg_fmt} avg  {arrow}{abs(pct):.0f}%'
+          else:
+              dashboard = 'no data'
+          with open('dashboard', 'w') as f:
+              f.write(dashboard + '\n')
           "
 
       - name: Update Gist
@@ -81,13 +83,13 @@ jobs:
           GIST_ID: ${{ secrets.TURNTIME_GIST_ID }}
         run: |
           jq -n \
-            --arg readme "$(cat gist-readme.md)" \
+            --arg dashboard "$(cat dashboard)" \
             --arg svg "$(cat turntime-histogram.svg)" \
             --arg stats "$(cat turntime-stats.json)" \
             --arg badge "$(cat turntime-shield.json)" \
             '{
               "files": {
-                "README.md": {"content": $readme},
+                "dashboard": {"content": $dashboard},
                 "turntime-histogram.svg": {"content": $svg},
                 "turntime-stats.json": {"content": $stats},
                 "turntime-shield.json": {"content": $badge}
@@ -131,9 +133,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
+          git add README.md turntime-histogram.svg
           git diff --staged --quiet && echo "No changes to commit" || \
             (git commit -m "chore: update turntime stats" && git push)
 
       - name: Cleanup
-        run: rm -rf turntime badges-month.md badges-all.md turntime-histogram.svg turntime-shield.json gist-readme.md
+        run: rm -rf turntime badges-month.md badges-all.md turntime-histogram.svg turntime-shield.json dashboard
