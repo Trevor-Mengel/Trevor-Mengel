@@ -1,8 +1,8 @@
 ## Hi there 👋
 
 <!-- turntime badges -->
-![⏱ This Week](https://img.shields.io/badge/%E2%8F%B1%20This%20Week-8.0m%20%E2%96%B212%25-14b8a6?style=for-the-badge)
-![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-7.1m-14b8a6?style=for-the-badge)
+![⏱ This Month](https://img.shields.io/badge/%E2%8F%B1%20This%20Month-7.8s%20%E2%96%BC2%25-475569?style=for-the-badge)
+![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-8.0s-475569?style=for-the-badge)
 <!-- /turntime badges -->
 
 <!-- turntime histogram -->
