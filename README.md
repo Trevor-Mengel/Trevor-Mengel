@@ -7,6 +7,6 @@
 
 <!-- turntime histogram -->
 <picture>
-  <img src="https://gist.githubusercontent.com/raw/aaea6b5d00f590fbc6b09960fa6d5599/turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" />
+  <img src="https://gist.githubusercontent.com/Trevor-Mengel/aaea6b5d00f590fbc6b09960fa6d5599/raw/turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" />
 </picture>
 <!-- /turntime histogram -->
