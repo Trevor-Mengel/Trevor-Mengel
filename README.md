@@ -7,11 +7,10 @@ Want to share your stats for Claude Code? [Get TurnTime here.](https://github.co
 Why is turn duration a strong performance indicator for AI programming skill? [Learn more.](https://www.anthropic.com/research/measuring-agent-autonomy)
 <!-- /turntime badges -->
 
-<!-- turntime histogram -->
-<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/main/turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" width="840" />
-<!-- /turntime histogram -->
-
-
 <!-- turntime distribution -->
 <img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/main/turntime-distribution.svg" alt="Claude Code Turn Duration Distribution" width="840" />
 <!-- /turntime distribution -->
+
+<!-- turntime histogram -->
+<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/main/turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" width="840" />
+<!-- /turntime histogram -->
