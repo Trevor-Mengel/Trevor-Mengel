@@ -1,10 +1,6 @@
 <!-- turntime badges -->
-Want to share your stats for Claude Code? [Get TurnTime here.](https://github.com/Trevor-Mengel/turntime)
-### Avg. Turn Duration (Claude Code)
-![⏱ This Week](https://img.shields.io/badge/%E2%8F%B1%20This%20Week-6.6mins%20%E2%96%BC1%25-14b8a6?style=for-the-badge)
-![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-6.7mins-14b8a6?style=for-the-badge)
-
-Why is turn duration a strong performance indicator for AI programming skill? [Learn more.](https://www.anthropic.com/research/measuring-agent-autonomy)
+![⏱ This Month](https://img.shields.io/badge/%E2%8F%B1%20This%20Month-7.8s%20%E2%96%BC2%25-475569?style=for-the-badge)
+![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-8.0s-475569?style=for-the-badge)
 <!-- /turntime badges -->
 
 <!-- turntime distribution -->
