@@ -1,9 +1,9 @@
 <!-- turntime badges -->
 Want to share your stats for Claude Code? [Get TurnTime here.](https://github.com/Trevor-Mengel/turntime)
-### All-Time High (Claude Code)
+### Personal Record (All Time)
 ![⏱ All-Time High](https://img.shields.io/badge/%E2%8F%B1%20All--Time%20High-14.1h-ffffff?style=for-the-badge)
 
-### Avg. Turn Duration (Claude Code)
+### Avg. Turn Duration (Weekly vs. All Time)
 ![⏱ This Week](https://img.shields.io/badge/%E2%8F%B1%20This%20Week-1.5mins%20%E2%96%BC61%25-475569?style=for-the-badge)
 ![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-3.8mins-f59e0b?style=for-the-badge)
 
