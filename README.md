@@ -1,16 +1,23 @@
 <!-- turntime badges -->
-![⏱ This Month](https://img.shields.io/badge/%E2%8F%B1%20This%20Month-7.8s%20%E2%96%BC2%25-475569?style=for-the-badge)
-![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-8.0s-475569?style=for-the-badge)
+Want to share your stats for Claude Code? [Get TurnTime here.](https://github.com/Trevor-Mengel/turntime)
+### All-Time High (Claude Code)
+![⏱ All-Time High](https://img.shields.io/badge/%E2%8F%B1%20All--Time%20High-14.1h-ffffff?style=for-the-badge)
+
+### Avg. Turn Duration (Claude Code)
+![⏱ This Week](https://img.shields.io/badge/%E2%8F%B1%20This%20Week-1.5mins%20%E2%96%BC62%25-475569?style=for-the-badge)
+![⏱ All Time](https://img.shields.io/badge/%E2%8F%B1%20All%20Time-3.8mins-f59e0b?style=for-the-badge)
+
+Why is turn duration a strong performance indicator for AI programming skill? [Learn more.](https://www.anthropic.com/research/measuring-agent-autonomy)
 <!-- /turntime badges -->
 
 <br>
 
 <!-- turntime distribution -->
-<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/dc22c8c/turntime-distribution.svg" alt="Claude Code Turn Duration Distribution" width="840" />
+<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/559742e/turntime-distribution.svg" alt="Claude Code Turn Duration Distribution" width="840" />
 <!-- /turntime distribution -->
 
 <br>
 
 <!-- turntime histogram -->
-<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/dc22c8c/turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" width="840" />
+<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/559742e/turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" width="840" />
 <!-- /turntime histogram -->
