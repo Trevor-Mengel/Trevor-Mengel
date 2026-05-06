@@ -13,11 +13,11 @@ Why is turn duration a strong performance indicator for AI programming skill? [L
 <br>
 
 <!-- turntime distribution -->
-<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/1be17d0/turntime-distribution.svg" alt="Claude Code Turn Duration Distribution" width="840" />
+<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/9f67f56/turntime-distribution.svg" alt="Claude Code Turn Duration Distribution" width="840" />
 <!-- /turntime distribution -->
 
 <br>
 
 <!-- turntime histogram -->
-<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/1be17d0/turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" width="840" />
+<img src="https://raw.githubusercontent.com/Trevor-Mengel/Trevor-Mengel/9f67f56/turntime-histogram.svg" alt="Claude Code Turn Duration Histogram" width="840" />
 <!-- /turntime histogram -->
